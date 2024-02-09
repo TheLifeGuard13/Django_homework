@@ -20,7 +20,8 @@ class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
         """ Метод для обработки входящих GET-запросов """
 
-        # query_components = parse_qs(urlparse(self.path).query)
+        query_components = parse_qs(urlparse(self.path).query)
+        print(query_components)
         page_content = self.read_html()
         self.send_response(200)
         self.send_header("Content-type", "text/html")
